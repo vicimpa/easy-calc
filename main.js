@@ -18,6 +18,11 @@ const obj = {
   '×': '*'
 }
 
+function toPrecision(inp = 0, precision = 0) {
+  const hour = 10 ** precision
+  return Math.round(inp * hour) / hour
+}
+
 function render() {
   const index = state < 2 ? 0 : 1
 
@@ -47,8 +52,10 @@ function inputNum(num = 0) {
   if (num >= 0) {
     if (!dops[index])
       input[index] = input[index] * 10 + num
-    else
+    else {
       input[index] += num * Math.pow(10, -(dops[index]++))
+      input[index] = toPrecision(input[index], dops[index] - 1)
+    }
   } else if (!dops[index]) {
     dops[index]++
   }
