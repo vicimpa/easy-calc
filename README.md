@@ -19,6 +19,9 @@ Super smart and up-to-date calculator for regular use. Soft and pleasant purple 
 ### Screens
 
 >
+> ![Record](./screens/screen_record.gif)
+>
+>
 > ![Screen 1](./screens/s1.png)
 >
 >
