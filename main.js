@@ -106,6 +106,7 @@ keyboard.addEventListener('click', ({ target }) => {
           case '/': input[0] = input[0] / input[1]; break
           case '*': input[0] = input[0] * input[1]; break
         }
+        input[0] = toPrecision(input[0], 8)
       }
 
       if (value == '√') {
