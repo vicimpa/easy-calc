@@ -52,7 +52,7 @@ function inputNum(num = 0) {
   if (num >= 0) {
     if (!dops[index])
       input[index] = input[index] * 10 + num
-    else {
+    else if (dops[index] < 9) {
       input[index] += num * Math.pow(10, -(dops[index]++))
       input[index] = toPrecision(input[index], dops[index] - 1)
     }
