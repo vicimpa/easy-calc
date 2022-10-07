@@ -1,9 +1,14 @@
 import "./style.css";
 
+import { getParetChild } from "./getParent";
+
 /** @type {HTMLParagraphElement} */
 const out = document.querySelector('.out')
 /** @type {HTMLTableElement} */
 const keyboard = document.querySelector('.keyboard')
+
+const animation = document.createElement('div')
+animation.className = 'animation'
 
 const input = [0, 0]
 const dops = [0, 0]
@@ -17,6 +22,7 @@ const obj = {
   '÷': '/',
   '×': '*'
 }
+
 
 function toPrecision(inp = 0, precision = 0) {
   const hour = 10 ** precision
@@ -61,11 +67,22 @@ function inputNum(num = 0) {
   }
 }
 
-keyboard.addEventListener('click', ({ target }) => {
-  if (!(target instanceof HTMLTableCellElement))
-    return
+keyboard.addEventListener('click', ({ target, clientX, clientY }) => {
+  const cell = getParetChild(target, HTMLTableCellElement)
+  if (!cell) return
 
-  const { innerText: value } = target
+  const { x, y } = cell.getBoundingClientRect()
+
+  animation.remove()
+  animation.style.top = `${clientY - y - 5}px`
+  animation.style.left = `${clientX - x - 5}px`
+  delete animation.onanimationend
+  cell.appendChild(animation)
+  animation.onanimationend = () => {
+    animation.remove()
+  }
+
+  const { innerText: value } = cell
 
   switch (value) {
     case 'C/CE': {
