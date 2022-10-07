@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #333;
+}
+
+.calc {
+  position: absolute;
+  width: 180px;
+  height: 300px;
+  border: 1px solid #999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Rubik', sans-serif;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 20px #6808d9;
+  background-color: #111;
+  gap: 10px;
+}
+
+.out {
+  padding: 10px;
+  background: #422e59;
+  color: #fff;
+  font-size: 20px;
+  text-align: right;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.keyboard {
+  flex-grow: 1;
+}
+
+.keyboard td {
+  width: 25%;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  border: 1px solid #999;
+  user-select: none;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.keyboard td:hover {
+  background-color: #444;
+}
