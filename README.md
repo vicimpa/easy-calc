@@ -1,5 +1,9 @@
 # Low level Calculator
 
+>
+> Super puper duper stuper calculator.
+>
+
 ### For run
 ```bash
 > git clone https://github.com/vicimpa/easy-calc
