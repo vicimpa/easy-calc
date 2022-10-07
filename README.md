@@ -1,8 +1,6 @@
 # Low level Calculator
 
->
-> Super puper duper stuper calculator.
->
+Super smart and up-to-date calculator for regular use. Soft and pleasant purple glow pleasantly pleases the eye.
 
 ### For run
 ```bash
