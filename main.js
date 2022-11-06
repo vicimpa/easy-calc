@@ -37,23 +37,14 @@ function render() {
       .toFixed(dops[index])
       .slice(0, -1)
   ) : input[index]}`
-
-  console.clear()
-  console.table({
-    input,
-    dops,
-    op,
-    state,
-    minus
-  })
 }
 
 function inputNum(num = 0) {
-  if (state == 1) {
+  if (state === 1) {
     state = 2
     input[1] = 0
   }
-  const index = state == 0 ? 0 : 1
+  const index = state === 0 ? 0 : 1
 
   if (num >= 0) {
     if (!dops[index])
@@ -94,7 +85,7 @@ keyboard.addEventListener('click', ({ target, clientX, clientY }) => {
     } break
 
     case '+/-': {
-      const index = state == 0 ? 0 : 1
+      const index = state === 0 ? 0 : 1
       minus[index] = !minus[index]
     } break
 
@@ -105,18 +96,18 @@ keyboard.addEventListener('click', ({ target, clientX, clientY }) => {
     case '-':
     case '÷':
     case '×': {
-      const index = state == 0 ? 0 : 1
+      const index = state === 0 ? 0 : 1
       dops[index] = 0
 
       input[0] = input[0] * (minus[0] ? -1 : 1)
       input[1] = input[1] * (minus[1] ? -1 : 1)
       minus.fill(false)
 
-      if (value == '%') {
+      if (value === '%') {
         input[1] = input[0] * (input[1] / 100)
       }
 
-      if (state == 2 || value == '=') {
+      if (state === 2 || value === '=') {
         switch (op) {
           case '+': input[0] = input[0] + input[1]; break
           case '-': input[0] = input[0] - input[1]; break
@@ -126,7 +117,7 @@ keyboard.addEventListener('click', ({ target, clientX, clientY }) => {
         input[0] = toPrecision(input[0], 8)
       }
 
-      if (value == '√') {
+      if (value === '√') {
         input[0] = Math.sqrt(input[0])
       }
 
@@ -141,12 +132,10 @@ keyboard.addEventListener('click', ({ target, clientX, clientY }) => {
       let num = NaN;
 
       if (!isNaN(num = +value)) {
-
-        console.log(value)
         inputNum(num)
       }
 
-      if (value == '.')
+      if (value === '.')
         inputNum(-1)
     }
   }
